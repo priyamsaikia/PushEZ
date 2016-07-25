@@ -1,3 +1,7 @@
+<h1>PUSHEZ - Push Easy</h1>
+<h5>PushEZ is a library which makes it really easy to implement Google Cloud Messaging (Push Notification Messaging). All you have to do is follow the following three steps! This library completely handles the device registration part and push message receiving part. Thereby, makeing it extremely easy for developers to use GCM.
+You can chose to handle the messages as you want (eg, sending notification, or saving it in database, etc)
+</h5>
 <h2>compile 'com.orchotech.priyamsaikia.lib-pushez:pushez:beta.1.0.3'</h2>
 
 
@@ -84,7 +88,7 @@ public void onRegistrationComplete(String registrationId) {
     }
 ```
 2. Note the Server API Key from Google Developers' Console
-3.and visit <h5>androidbegin.com/tutorial/gcm.html </h5>enter your key and registration id in the provided form, enter message
+3. and visit <h5>http://androidbegin.com/tutorial/gcm.html </h5>enter your key and registration id in the provided form, enter message
   and check your console to know if you have received the message (or generate a notification in this method 
 
 ```java
