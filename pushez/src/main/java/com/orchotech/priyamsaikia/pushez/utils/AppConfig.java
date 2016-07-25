@@ -5,6 +5,7 @@ package com.orchotech.priyamsaikia.pushez.utils;
  */
 
 public class AppConfig {
+    public static final String SENDER_ID = "gcm_sender_id";
     public static String reg_id = "gcm_registration_id";
     public static String SENT_TOKEN_TO_SERVER = "sent_token_to_server";
 

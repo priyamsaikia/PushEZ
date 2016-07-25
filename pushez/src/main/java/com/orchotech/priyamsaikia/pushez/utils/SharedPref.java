@@ -17,6 +17,14 @@ public class SharedPref {
             return sp;
     }
 
+    public static void init(Context context, String senderId) {
+        getSP(context).edit().putString(AppConfig.SENDER_ID, senderId);
+    }
+
+    public static String getSenderId(Context context) {
+        return getSP(context).getString(AppConfig.SENDER_ID, "");
+    }
+
     public static void writeRegId(Context context, String regId) {
         getSP(context).edit().putString(AppConfig.reg_id, regId).commit();
     }
@@ -27,7 +35,6 @@ public class SharedPref {
         else
             return "";
     }
-
 
 
 }

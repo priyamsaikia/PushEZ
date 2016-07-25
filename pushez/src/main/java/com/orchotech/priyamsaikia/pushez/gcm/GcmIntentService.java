@@ -60,9 +60,12 @@ public class GcmIntentService extends IntentService {
     private void registerGCM(Context context) {
         String token = null;
 
+        String gcm_server_sender_id = SharedPref.getSenderId(context);
+        //String sender_id = getString(R.string.gcm_defaultSenderId);
+
         try {
             InstanceID instanceID = InstanceID.getInstance(context);
-            token = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
+            token = instanceID.getToken(gcm_server_sender_id,
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             SharedPref.writeRegId(context, token);
             Log.d(TAG, "GCM Registration Token: " + token);
@@ -86,8 +89,9 @@ public class GcmIntentService extends IntentService {
         GcmPubSub pubSub = GcmPubSub.getInstance(getApplicationContext());
         InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
         String token = null;
+        String gcm_server_sender_id = SharedPref.getSenderId(GcmIntentService.this);
         try {
-            token = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
+            token = instanceID.getToken(gcm_server_sender_id,
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             if (token != null) {
                 pubSub.subscribe(token, "/topics/" + topic, null);
@@ -105,8 +109,9 @@ public class GcmIntentService extends IntentService {
         GcmPubSub pubSub = GcmPubSub.getInstance(getApplicationContext());
         InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
         String token = null;
+        String gcm_server_sender_id = SharedPref.getSenderId(GcmIntentService.this);
         try {
-            token = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
+            token = instanceID.getToken(gcm_server_sender_id,
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             if (token != null) {
                 pubSub.unsubscribe(token, "");
