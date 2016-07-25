@@ -62,13 +62,14 @@ public class MyReceiver extends BroadcastReceiver implements PushReceivedUtil.Pu
         Log.d("my receiver", bundle.getString("message"));
         //this is where you need to handle the message, eg. send a notification, ringtone, vibration, etc.
     }
-}
-
-//end receiver code
+}//end receiver code
 
 Register the receiver in the AndroidManifest.xml inside application tag
- <receiver android:name=".MyReceiver">
+//start of AndroidManifest.xml code
+<receiver android:name=".MyReceiver">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
-        </receiver>
+</receiver>
+
+//end of AndroidManifest.xml code
