@@ -1,10 +1,18 @@
-<h2>1. Register Device to get Google Cloud Device Registration ID</h2>
+<h2>compile 'com.orchotech.priyamsaikia.lib-pushez:pushez:beta.1.0.3'</h2>
+
+
+
+<h1>GET STARTED : Get Your Sender ID and (note the Server API key) in the link below</h1>
+
+https://developers.google.com/cloud-messaging/android/start
+
+<h2>1. Initialise PushEZ with Google Sender ID, Register Device to get Google Cloud Device Registration ID</h2>
 <h5> MyActivity.java </h5>
 
 ```java
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        PushEZ.initPushEZ(this, "your_sender_id");
         PushEZ.getRegistrationId(this);
         PushEZ.registerRegistrationListener(this);
         
