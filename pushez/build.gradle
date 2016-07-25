@@ -26,8 +26,8 @@ android {
     }
 }
 
-def siteUrl = 'https://github.com/saikiapriyam/lib_PushEZ'      // Homepage URL of the library
-def gitUrl = 'https://github.com/saikiapriyam/lib_PushEZ.git'   // Git repository URL
+def siteUrl = 'https://github.com/saikiapriyam/lib_pushez'      // Homepage URL of the library
+def gitUrl = 'https://github.com/saikiapriyam/lib_pushez.git'   // Git repository URL
 group = "com.orchotech.priyamsaikia.lib-pushez"                                        // Maven Group ID for the artifact
 install {
     repositories.mavenInstaller {
@@ -37,7 +37,7 @@ install {
                 packaging 'aar'
 
                 // Add your description here
-                name '<Your library description>'
+                name 'A library that makes it very easy to use Google Cloud Messaging on Android Apps.'
                 url siteUrl
 
                 // Set your license
@@ -49,9 +49,9 @@ install {
                 }
                 developers {
                     developer {
-                        id '<your user ID>'
-                        name '<your name>'
-                        email '<your email>'
+                        id 'priyamsaikia'
+                        name 'Priyam Saikia'
+                        email 'orchotech@gmail.com'
                     }
                 }
                 scm {
