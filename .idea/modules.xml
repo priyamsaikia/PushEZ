@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PushEZ.iml" filepath="$PROJECT_DIR$/PushEZ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pushez/app.iml" filepath="$PROJECT_DIR$/pushez/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pushez/pushez.iml" filepath="$PROJECT_DIR$/pushez/pushez.iml" />
+    </modules>
+  </component>
+</project>
