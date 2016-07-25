@@ -68,15 +68,20 @@ public class PushEZ {
         }
     }
 
-    public static void registerRegistrationListener(RegistrationListener registrationListener){
-        mRegistrationListener=registrationListener;
+    public static void registerRegistrationListener(RegistrationListener registrationListener) {
+        mRegistrationListener = registrationListener;
     }
 
     public static void registrationComplete(String registrationId) {
         mRegistrationListener.onRegistrationComplete(registrationId);
     }
 
-    public interface RegistrationListener{
+
+    public static void initPushEZ(Context context, String gcmSenderId) {
+        SharedPref.writeSenderId(context, gcmSenderId);
+    }
+
+    public interface RegistrationListener {
         void onRegistrationComplete(String registrationId);
     }
 

@@ -17,7 +17,7 @@ public class SharedPref {
             return sp;
     }
 
-    public static void init(Context context, String senderId) {
+    public static void writeSenderId(Context context, String senderId) {
         getSP(context).edit().putString(AppConfig.SENDER_ID, senderId);
     }
 
