@@ -22,7 +22,7 @@
         super.onPause();
         PushEZ.unregisterPushEZTokenReceiver(this);
     }
-    ```
+```
 
 <h2>2. Save the Google Cloud Device Registration ID</h2>
 <h5>MyActivity.java</h5>
