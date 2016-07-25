@@ -1,56 +1,48 @@
-In your activity, put these lines of code:
-To start Google Cloud Device Registration Process:
+<h2>1. Register Device to get Google Cloud Device Registration ID</h2>
+<h5> MyActivity.java </h5>
 
-//start activity code
-
+```java
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //pushez start code
         PushEZ.getRegistrationId(this);
         PushEZ.registerRegistrationListener(this);
-        //pushez end code
-
+        
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        //pushez start code
         PushEZ.registerPushEZTokenReceiver(this);
-        //pushez end code
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        //pushez start code
         PushEZ.unregisterPushEZTokenReceiver(this);
-        //pushez end code
     }
+    ```
 
-Now, to get the registration id, once the registration process is complete,
-implement PushEZ.RegistrationListener in the activity and implement method
+<h2>2. Save the Google Cloud Device Registration ID</h2>
+<h5>MyActivity.java</h5>
+<h3>2. a) implement PushEZ.RegistrationListener in the activity </h3>
+<h3>2. b) implement method onRegistrationComplete(String registrationId)</h3>
 
 
+```java
     @Override
     public void onRegistrationComplete(String registrationId) {
         Log.d("take your token", registrationId);
     }
+```
+<h2>3. Receive Push Notifications </h2>
+<h3>3 a) In the BroadCastReceiver, implement PushReceivedUtil.PushEZListener</h3>
+<h3>3 b) Implement method</h3>
 
-
-
-    //end of Activity code
-
-
-   Now, to receive push messages, add this code:
-
-   //start receiver code
+```java
 public class MyReceiver extends BroadcastReceiver implements PushReceivedUtil.PushEZListener {
-
     private PushReceivedUtil.PushEZListener  mPushEZListener;
-
     @Override
     public void onReceive(Context context, Intent intent) {
         mPushEZListener = this;
@@ -60,16 +52,19 @@ public class MyReceiver extends BroadcastReceiver implements PushReceivedUtil.Pu
     @Override
     public void onPushReceived(Bundle bundle) {
         Log.d("my receiver", bundle.getString("message"));
-        //this is where you need to handle the message, eg. send a notification, ringtone, vibration, etc.
     }
-}//end receiver code
+}
+```
 
-Register the receiver in the AndroidManifest.xml inside application tag
-//start of AndroidManifest.xml code
+<h2>4. Register the receiver in the AndroidManifest.xml</h2>
+<h5>AndroidManifest.xml</h5>
+
+```xml
 <receiver android:name=".MyReceiver">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
 </receiver>
+```
 
-//end of AndroidManifest.xml code
+
