@@ -110,6 +110,7 @@ public class GcmIntentService extends IntentService {
         InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
         String token = null;
         String gcm_server_sender_id = SharedPref.getSenderId(GcmIntentService.this);
+        Log.d(TAG,gcm_server_sender_id);
         try {
             token = instanceID.getToken(gcm_server_sender_id,
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
