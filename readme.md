@@ -74,5 +74,25 @@ public class MyReceiver extends BroadcastReceiver implements PushReceivedUtil.Pu
             </intent-filter>
 </receiver>
 ```
+To check if the app is working well, 
+
+1. note the token ID or registration ID from console (that you receive in the method 
+
+```java
+public void onRegistrationComplete(String registrationId) {
+        Log.d("take your token", registrationId);
+    }
+```
+2. Note the Server API Key from Google Developers' Console
+3.and visit <h5>androidbegin.com/tutorial/gcm.html </h5>enter your key and registration id in the provided form, enter message
+  and check your console to know if you have received the message (or generate a notification in this method 
+
+```java
+@Override
+    public void onPushReceived(Bundle bundle) {
+        Log.d("my receiver", bundle.getString("message"));
+    }
+```
+    Thanks !
 
 
